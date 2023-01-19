@@ -50,8 +50,8 @@ model DayHabit {
   // habitId  String
 
   //3. Autocompleted edited with my "_" variable standart
-  day   Day   @relation(fields: [day_id], references: [id])
-  habit Habit @relation(fields: [habit_id], references: [id])
+  day   Day   @relation(fields: [day_id], references: [id], onDelete: Cascade)
+  habit Habit @relation(fields: [habit_id], references: [id], onDelete: Cascade)
 
   @@unique([day_id, habit_id])
   @@map("day_habits")
@@ -63,7 +63,7 @@ model HabitWeekDays {
   week_day Int
 
   //3. Autocompleted edited with my "_" variable standart
-  habit Habit @relation(fields: [habit_id], references: [id])
+  habit Habit @relation(fields: [habit_id], references: [id], onDelete: Cascade)
 
   @@unique([habit_id, week_day])
   @@map("habit_week_days")
