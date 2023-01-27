@@ -1,6 +1,6 @@
 import { View, Text, ScrollView } from "react-native";
+import { useNavigation } from "@react-navigation/native"
 import dayjs from "dayjs"
-
 import { Day, DAY_SIZE } from "../components/Day";
 import { Header } from "../components/Header";
 import { generateDaysFromStartOfYear } from "../../utils/generate-dates-from-start-of-year";
@@ -16,9 +16,12 @@ const summaryDates = generateDaysFromStartOfYear()
 
 //future dates
 const amountOfTotalDays = 20 * 7
-const amountOfPlaceholderDays = amountOfTotalDays - summaryDates.length
+const amountOfPlaceholderDays = amountOfTotalDays - summaryDates.length - yearOffset
 
 export function Home() {
+
+  const { navigate } = useNavigation()
+
   return (
     <View className="flex-1 bg-background px-8 pt-16">
       
@@ -64,7 +67,10 @@ export function Home() {
           {/* Past days */}
           {summaryDates.map(date => {
             return (
-              <Day key={date.toString()}/>
+              <Day 
+                key={date.toString()}
+                onPress={() => navigate("habit", {date: date.toISOString()})}
+              />
             )
           })}
 
