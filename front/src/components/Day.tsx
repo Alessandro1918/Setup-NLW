@@ -33,6 +33,7 @@ export function Day(props: DayProps) {
           
           <span className="font-semibold text-zinc-400">
             {
+              // v1:
               {
                 0: "domingo",
                 1: "segunda-feira",
@@ -42,6 +43,8 @@ export function Day(props: DayProps) {
                 5: "sexta-feira",
                 6: "sábado"
               }[dayjs(props.date).format("d")]
+              // v2:
+              // {dayjs(date).format("dddd")} //day of week in pt-BR, because of the lib/dayjs.ts file I imported at App.tsx
             }
           </span>
 
@@ -51,7 +54,7 @@ export function Day(props: DayProps) {
 
           <ProgressBar progress={percentualCompleted}/>
 
-          {/* list of weekdays */}
+          {/* list of habits */}
           <div className="flex flex-col mt-6 gap-3">
 
             {/* tailwind trick: "group": allows me to style components based on attributes they don't have, but someone inside the group does */}
