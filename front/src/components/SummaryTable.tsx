@@ -1,4 +1,6 @@
 import dayjs from "dayjs"
+import { useEffect, useState } from "react"
+import { api } from "../lib/axios"
 import { generateDaysFromStartOfYear } from "../utils/generate-dates-from-start-of-year"
 import { Day } from "./Day"
 
@@ -8,10 +10,27 @@ const yearOffset = dayjs().startOf("year").day()  //not every year starts on a S
 
 const summaryDates = generateDaysFromStartOfYear()
 
-const amountOfTotalDays = 18 * 7
+const amountOfTotalDays = 18 * 7  //18 weeks, just to fill the screen
 const amountOfPlaceholderDays = amountOfTotalDays - summaryDates.length - yearOffset
 
+// interface DayResponse {    //interface X {...}   usage: useState<SummaryResponse[]>([])
+type SummaryResponse = {      //type X = {...}[]    usage: useState<SummaryResponse>([])
+  id: string
+  date: string
+  completed: number
+  available: number
+}[]
+
 export function SummaryTable() {
+
+  const [ summary, setSummary ] = useState<SummaryResponse>([])
+
+  useEffect(() => {
+    api.get("/summary").then(response => {
+      setSummary(response.data)
+    })
+  }, [])
+
   return (
     <div className="w-full flex">
       {/* Week day letter */}
@@ -49,12 +68,21 @@ export function SummaryTable() {
 
         {/* Past days */}
         {summaryDates.map(date => {
+          
+          const dayInSummary = summary.find(day => {
+            return dayjs(date).isSame(day.date, "day")  //"day": check year, month, up until day (no hour / min)
+          })
+          
           return (
             <Day 
               key={date.toString()}
               date={date}
-              completed={Math.round(Math.random() * 5)}
-              available={5}
+              //Random:
+              // completed={Math.round(Math.random() * 5)}
+              // available={5}
+              //From the API:
+              completed={dayInSummary?.completed || 0}
+              available={dayInSummary?.available || 0}
             />
           )
         })}

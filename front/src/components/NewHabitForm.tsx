@@ -1,6 +1,7 @@
 import * as Checkbox from "@radix-ui/react-checkbox"
 import { Check } from "phosphor-react";
 import { FormEvent, useState } from "react";
+import { api } from "../lib/axios";
 
 const availableWeekDays = [
   "Domingo",
@@ -17,8 +18,22 @@ export function NewHabitForm() {
   const [ title, setTitle ] = useState('')
   const [ weekDays, setWeekDays ] = useState<number[]>([])
   
-  function handleCreateHabit(event: FormEvent) {
+  async function handleCreateHabit(event: FormEvent) {
     event.preventDefault()
+
+    //error handling:
+    if (!title || weekDays.length == 0) {
+      return
+    }
+
+    await api.post("/habits", {
+      title, weekDays
+    })
+
+    setTitle('')
+    setWeekDays([])
+
+    alert("Hábito salvo com sucesso!")
 
   }
 
@@ -46,6 +61,7 @@ export function NewHabitForm() {
         autoFocus
         className="p-4 rounded-lg mt-3 bg-zinc-800 text-white placeholder:text-zinc-400"
         onChange={event => setTitle(event.target.value)}
+        value={title}   //just to clear component after form submit; I already got it's value on the state with the onChange
       />
 
       <label htmlFor="" className="font-semibold leading-tight mt-4">
@@ -64,6 +80,7 @@ export function NewHabitForm() {
                 key={weekday}
                 className="flex items-center gap-3 group"
                 onCheckedChange={() => handleToggleWeekDay(i)}
+                checked={weekDays.includes(i)}  //just to clear component after form submit; I already got it's value on the state with the onChange
               >
 
               {/* Here I style a div because the unchecked Radix checkbox does not get rendered */}

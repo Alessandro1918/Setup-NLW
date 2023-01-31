@@ -13,7 +13,10 @@ interface DayProps {
 
 export function Day(props: DayProps) {
 
-  const percentualCompleted = props.completed / props.available * 100
+  const percentualCompleted = 
+    props.available > 0
+    ? props.completed / props.available * 100
+    : 0
 
   return (
     <Popover.Root>
@@ -44,7 +47,7 @@ export function Day(props: DayProps) {
                 6: "sábado"
               }[dayjs(props.date).format("d")]
               // v2:
-              // {dayjs(date).format("dddd")} //day of week in pt-BR, because of the lib/dayjs.ts file I imported at App.tsx
+              // {dayjs(props.date).format("dddd")} //day of week in pt-BR, because of the lib/dayjs.ts file I imported at App.tsx like the mobile version
             }
           </span>
 
