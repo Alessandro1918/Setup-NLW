@@ -40,11 +40,9 @@ export function Home() {
       setIsLoading(true)
 
       const response = await api.get("/summary")
-      console.log(response.data)
+      console.log(JSON.stringify(response.data, null, 1))
       setSummary(response.data)
 
-      // const response = fetch("http://localhost:4000/summary")
-      // console.log(response)
     } catch (error) {
       Alert.alert("Ops!", "Não foi possível carregar as informações")
       console.log(JSON.stringify(error, null, 1))
