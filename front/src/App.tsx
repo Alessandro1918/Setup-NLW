@@ -1,6 +1,5 @@
 import "./styles/global.css"
 
-import { Day } from "./components/Day"
 import { Header } from "./components/Header"
 import { SummaryTable } from "./components/SummaryTable"
 
