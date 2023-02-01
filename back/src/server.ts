@@ -10,5 +10,5 @@ app.register(cors)
 app.register(appRoutes)
 
 app
-  .listen({port: PORT})
+  .listen({ port: PORT, host: "0.0.0.0" })
   .then(() => {console.log(`Server running on port ${PORT}`)})

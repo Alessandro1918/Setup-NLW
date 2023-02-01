@@ -94,7 +94,7 @@ export async function appRoutes(app: FastifyInstance) {
       }
     })
 
-    //doens't exist; create day
+    //doesn't exist; create day
     if (!day) {
       day = await prisma.day.create({
         data: {
@@ -142,7 +142,8 @@ export async function appRoutes(app: FastifyInstance) {
   //cast(count(*) as float) //convert BigInt to float
   //FROM day_habits DH      //"DH" = alias for the table "day_habits"
   //strftime                //SQLite format function
-  //JOIN                    //brings the habit related to the HWD entry so I can check the created_at field
+  //as completed            //alias for JSON return object: {..., "completed": 3, ...}
+  //JOIN ...                //brings the habit related to the HWD entry so I can check the created_at field
   app.get("/summary", async (req, res) => {
 
     const summary = await prisma.$queryRaw`
