@@ -75,7 +75,7 @@ export function NewHabitForm() {
           availableWeekDays.map((weekday, i) => {
             return (
               //tailwind trick: "group": allows me to style components based on attributes they don't have, but someone inside the group does
-              //(style the parent "div" based on the state of the Indicator)
+              //(style the parent "div" based on the state of the "Indicator" child)
               <Checkbox.Root 
                 key={weekday}
                 className="flex items-center gap-3 group"
@@ -83,7 +83,7 @@ export function NewHabitForm() {
                 checked={weekDays.includes(i)}  //just to clear component after form submit; I already got it's value on the state with the onChange
               >
 
-              {/* Here I style a div because the unchecked Radix checkbox does not get rendered */}
+              {/* Here I style a div because an unchecked Radix checkbox does not get rendered */}
               <div className="h-8 w-8 rounded-lg flex items-center justify-center bg-zinc-900 border-2 border-zinc-800 group-data-[state=checked]:bg-green-500 group-data-[state=checked]:border-green-500">
                 <Checkbox.Indicator>
                   <Check size={20} className="text-white"/>
