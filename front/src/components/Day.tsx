@@ -29,7 +29,7 @@ export function Day(props: DayProps) {
   return (
     <Popover.Root>
       <Popover.Trigger 
-        className={clsx("w-10 h-10 border-2 rounded-lg", {
+        className={clsx("w-10 h-10 border-2 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-violet-600 focus:ring-offset-2 focus:ring-offset-background", {
           "border-zinc-800 bg-zinc-900": percentualCompleted == 0,
           "border-violet-800 bg-violet-900": percentualCompleted > 0 && percentualCompleted < 20,
           "border-violet-700 bg-violet-800": percentualCompleted >= 20 && percentualCompleted < 40,
