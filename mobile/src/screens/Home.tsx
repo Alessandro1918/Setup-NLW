@@ -132,7 +132,7 @@ export function Home() {
               return (
                 <View 
                   key={i} 
-                  className="bg-zinc-900 border-zinc-800 border-2 rounded-lg m-1 opacity-50"
+                  className="bg-zinc-800 border-zinc-700 border-2 rounded-lg m-1 opacity-50"
                   style={{width: DAY_SIZE, height: DAY_SIZE}}
                 />
               )
