@@ -3,6 +3,7 @@ import { Feather } from "@expo/vector-icons"
 import colors from "tailwindcss/colors"
 import Animated, { ZoomIn, ZoomOut } from "react-native-reanimated"
 
+//have my custom component understand props (like "disable") from other types (like "TouchableOpacity") 
 //1. extends my Props with the component's Props
 //2. includes "...rest" with my props
 //3. declare it in the component
