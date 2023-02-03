@@ -67,25 +67,28 @@ export function SummaryTable() {
         }
 
         {/* Past days */}
-        {summaryDates.map(date => {
+        {
+          summary.length > 0 &&
+          summaryDates.map(date => {
           
-          const dayInSummary = summary.find(day => {
-            return dayjs(date).isSame(day.date, "day")  //"day": check year, month, up until day (no hour / min)
+            const dayInSummary = summary.find(day => {
+              return dayjs(date).isSame(day.date, "day")  //"day": check year, month, up until day (no hour / min)
+            })
+
+            return (
+              <Day 
+                key={date.toString()}
+                date={date}
+                //Random:
+                // completed={Math.round(Math.random() * 5)}
+                // available={5}
+                //From the API:
+                defaultCompleted={dayInSummary?.completed || 0}
+                available={dayInSummary?.available || 0}
+              />
+            )
           })
-          
-          return (
-            <Day 
-              key={date.toString()}
-              date={date}
-              //Random:
-              // completed={Math.round(Math.random() * 5)}
-              // available={5}
-              //From the API:
-              completed={dayInSummary?.completed || 0}
-              available={dayInSummary?.available || 0}
-            />
-          )
-        })}
+        }
 
         {/* Future days */}
         {

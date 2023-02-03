@@ -24,7 +24,7 @@ export function Day({date, available, completed, ...rest}: DayProps) {
     <TouchableOpacity 
       activeOpacity={0.7}
       className={clsx("border-2 rounded-lg m-1", {
-        "border-zinc-800 bg-zinc-900": percentualCompleted == 0,
+        "border-zinc-700 bg-zinc-800": percentualCompleted == 0,
         "border-violet-800 bg-violet-900": percentualCompleted > 0 && percentualCompleted < 20,
         "border-violet-700 bg-violet-800": percentualCompleted >= 20 && percentualCompleted < 40,
         "border-violet-600 bg-violet-700": percentualCompleted >= 40 && percentualCompleted < 60,

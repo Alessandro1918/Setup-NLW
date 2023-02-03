@@ -69,7 +69,7 @@ export async function appRoutes(app: FastifyInstance) {
     })
     const completedHabits = day?.dayHabits.map(habit => {
       return habit.habit_id //3. return just the habit's ID
-    })
+    }) ?? []                //4. if no habits completed, return empty list
 
     return {
       possibleHabits,
