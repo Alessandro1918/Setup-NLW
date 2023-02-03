@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useCallback } from "react";
 import { View, Text, ScrollView, Alert } from "react-native";
-import { useNavigation } from "@react-navigation/native"
+import { useNavigation, useFocusEffect } from "@react-navigation/native"
 import dayjs from "dayjs"
 import { Day, DAY_SIZE } from "../components/Day";
 import { Header } from "../components/Header";
@@ -51,9 +51,11 @@ export function Home() {
     }
   }
 
-  useEffect(() => {
+  //called when focus is returned to this component
+  //(reload data updated on the other screen)
+  useFocusEffect(useCallback(() => {
     getData()
-  }, [])
+  }, []))
 
   if (isLoading) {
     return <Loading />
