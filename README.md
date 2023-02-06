@@ -3,9 +3,12 @@
 ## 🚀 Projeto
 Um controlador de hábitos com visualização do progresso dia-a-dia
 
-- 📊 Backend:   🚧 Em construção 🚧
-- 🖼️ Frontend:   🚧 Em construção 🚧
-- 📱 Mobile:  🚧 Em construção 🚧
+
+## 🛠️ Tecnologias
+- 📊 Backend: [Node.js](https://nodejs.org/en/) | [Prisma](https://www.prisma.io)
+- 🖼️ Frontend: [React](https://pt-br.reactjs.org) | [Tailwind CSS](https://tailwindcss.com)
+- 📱 Mobile: [React Native](https://reactnative.dev) | [Expo](https://expo.dev)
+
 
 ## 🗂️ Utilização
 
@@ -23,7 +26,7 @@ Um controlador de hábitos com visualização do progresso dia-a-dia
   $ npm install             #download dependencies to node_modules
   $ npx prisma migrate dev  #creates the local dev.db file
   $ npx prisma db seed      #populates the db with data from the seed.ts file
-  $ npx prisma studio dev   #optional - visualize the db on the web browser
+  $ npx prisma studio dev   #optional - visualize the table realtions on a diagram on the web browser
   $ npm run dev             #start the project
 ```
 
@@ -36,7 +39,7 @@ Um controlador de hábitos com visualização do progresso dia-a-dia
 
 📱 Mobile
 ```bash
-  $ cd back
+  $ cd mobile
   $ npm install             #download dependencies to node_modules
   $ npx expo start          #start the project
 ```
