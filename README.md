@@ -26,7 +26,7 @@ Um controlador de hábitos com visualização do progresso dia-a-dia
   $ npm install             #download dependencies to node_modules
   $ npx prisma migrate dev  #creates the local dev.db file
   $ npx prisma db seed      #populates the db with data from the seed.ts file
-  $ npx prisma studio dev   #optional - visualize the table realtions on a diagram on the web browser
+  $ npx prisma studio dev   #optional - visualize the table relations on a diagram on the web browser
   $ npm run dev             #start the project
 ```
 
