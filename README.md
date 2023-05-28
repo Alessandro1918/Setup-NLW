@@ -1,7 +1,13 @@
 # Setup-NLW
 
 ## 🚀 Projeto
-Um controlador de hábitos com visualização do progresso dia-a-dia
+Um controlador de hábitos com visualização do progresso dia-a-dia!
+
+<div align="center">
+  <img alt="1 - overview" title="1 - overview" src="assets/NlwSetup1.jpg" width="30%" />
+  <img alt="2 - overview" title="2 - overview" src="assets/NlwSetup2.jpg" width="30%" />
+  <img alt="3 - overview" title="3 - overview" src="assets/NlwSetup3.jpg" width="30%" />
+</div>
 
 
 ## 🛠️ Tecnologias
