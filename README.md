@@ -1,7 +1,8 @@
 # Setup-NLW
 
 ## 🚀 Projeto
-Um controlador de hábitos com visualização do progresso dia-a-dia!
+Um controlador de hábitos com visualização do progresso dia-a-dia!</br>
+Aplicação desenvolvida durante a Next Level Week, realizada pela [@Rocketseat](https://www.rocketseat.com.br) em jan/23.
 
 <div align="center">
   <img alt="1 - overview" title="1 - overview" src="assets/NlwSetup1.jpg" width="30%" />
