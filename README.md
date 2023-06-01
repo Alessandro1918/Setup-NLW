@@ -49,4 +49,5 @@ Aplicação desenvolvida durante a Next Level Week, realizada pela [@Rocketseat]
   $ cd mobile
   $ npm install             #download dependencies to node_modules
   $ npx expo start          #start the project
+  #The terminal will compile the code and display a QR code. Open the Expo Go app, and scan this QR code to see the project running on your phone
 ```
