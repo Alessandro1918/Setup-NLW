@@ -29,24 +29,24 @@ Aplicação desenvolvida durante a Next Level Week, realizada pela [@Rocketseat]
 
 📊 Backend
 ```bash
-  $ cd back
+  $ cd back                 #change to this directory
   $ npm install             #download dependencies to node_modules
   $ npx prisma migrate dev  #creates the local dev.db file
   $ npx prisma db seed      #populates the db with data from the seed.ts file
-  $ npx prisma studio dev   #optional - visualize the table relations on a diagram on the web browser
+  $ npx prisma studio       #db management thru a control panel in a web browser tab
   $ npm run dev             #start the project
 ```
 
 🖼️ Frontend
 ```bash
-  $ cd front
+  $ cd front                #change to this directory
   $ npm install             #download dependencies to node_modules
   $ npm run dev             #start the project
 ```
 
 📱 Mobile
 ```bash
-  $ cd mobile
+  $ cd mobile               #change to this directory
   $ npm install             #download dependencies to node_modules
   $ npx expo start          #start the project
   #The terminal will compile the code and display a QR code. Open the Expo Go app, and scan this QR code to see the project running on your phone
